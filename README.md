@@ -3,6 +3,8 @@
 Cheesesquare Sample
 ===================================
 
+Test for BUNQ by Nik
+
 Demos the new Android Design library. This is not an exhaustive sample, but shows
 some of the important features in the Design library:
 
