@@ -35,8 +35,10 @@ import com.support.android.designlibdemo.api.CheeseApi;
 import com.support.android.designlibdemo.activities.CheeseDetailActivity;
 import com.support.android.designlibdemo.R;
 import com.support.android.designlibdemo.models.Cheese;
+import com.support.android.designlibdemo.utils.ApiRequest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheeseListFragment extends Fragment {
@@ -52,15 +54,42 @@ public class CheeseListFragment extends Fragment {
 
     private void setupRecyclerView(RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-
-        try {
-            List<Cheese> cheeses = CheeseApi.listCheeses(30);
-            recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(), cheeses));
-        } catch (IOException exception) {
-            // Ignore.
-        }
+        System.out.println("getting list in tab" + this.getId());
+        getListCheeses(recyclerView);
     }
 
+    private void getListCheeses(final RecyclerView recyclerView){
+
+        // override behaviour of ApiRequest with custom action and fragment components
+        ApiRequest api = new ApiRequest() {
+            List<Cheese> cheeses;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                cheeses = new ArrayList<Cheese>();
+            }
+
+            @Override
+            protected String doInBackground(String... urls) {
+                try {
+                    cheeses = CheeseApi.listCheeses(30);
+                } catch (IOException exception) {
+                    // .IGNORE
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+                System.out.println("done with size: "  + cheeses.size());
+                recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(), cheeses));
+            }
+        };
+        api.execute(""); // execute api request
+    }
+
+
+    
     public static class SimpleStringRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleStringRecyclerViewAdapter.ViewHolder> {
 
