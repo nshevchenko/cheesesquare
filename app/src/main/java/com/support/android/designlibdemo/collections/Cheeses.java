@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.collections;
 
 import android.support.annotation.NonNull;
+
+import com.support.android.designlibdemo.R;
+import com.support.android.designlibdemo.models.Cheese;
 
 import java.util.ArrayList;
 import java.util.List;

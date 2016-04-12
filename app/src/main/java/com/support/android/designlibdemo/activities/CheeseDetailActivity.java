@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +25,8 @@ import android.view.Menu;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.support.android.designlibdemo.R;
+import com.support.android.designlibdemo.models.Cheese;
 
 public class CheeseDetailActivity extends AppCompatActivity {
 
@@ -34,7 +36,7 @@ public class CheeseDetailActivity extends AppCompatActivity {
      * The {@link Cheese} for which to display the details.
      */
     private Cheese mCheese;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

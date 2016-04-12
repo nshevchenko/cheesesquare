@@ -1,4 +1,4 @@
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.models;
 
 import android.support.annotation.NonNull;
 

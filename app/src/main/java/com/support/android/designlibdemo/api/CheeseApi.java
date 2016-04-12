@@ -1,6 +1,9 @@
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.api;
 
 import android.support.annotation.NonNull;
+
+import com.support.android.designlibdemo.collections.Cheeses;
+import com.support.android.designlibdemo.models.Cheese;
 
 import java.io.IOException;
 import java.util.List;

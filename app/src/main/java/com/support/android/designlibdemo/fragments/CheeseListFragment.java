@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.support.android.designlibdemo;
+package com.support.android.designlibdemo.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +31,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.support.android.designlibdemo.api.CheeseApi;
+import com.support.android.designlibdemo.activities.CheeseDetailActivity;
+import com.support.android.designlibdemo.R;
+import com.support.android.designlibdemo.models.Cheese;
 
 import java.io.IOException;
 import java.util.List;
